@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Axonovyn – Data-Driven MS Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Axonovyn is a data and AI-ready platform designed to help MS clinics and researchers capture structured, longitudinal data and unlock insights into disease progression." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    .nav-links a {
+      margin-left: 1rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .nav-links a:hover {
+      color: #111827;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #2563eb;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid #cbd5f5;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: #eef2ff;
+      color: #1f2937;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+
+    .btn-secondary:hover {
+      background: #e0e7ff;
+    }
+
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .hero p.lead {
+      font-size: 1rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+      max-width: 34rem;
+    }
+
+    .hero-meta {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0f172a;
+      margin-bottom: 0.9rem;
+    }
+
+    .pill span {
+      height: 6px;
+      width: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-right: 0.4rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .stat-label {
+      font-weight: 500;
+      color: #4b5563;
+    }
+
+    .pill-small {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      margin-top: 0.4rem;
+    }
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    h2.section-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #6b7280;
+      max-width: 32rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card, .simple-card {
+      background: #ffffff;
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .feature-card h3,
+    .simple-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6366f1;
+      margin-bottom: 0.3rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    ul {
+      margin-left: 1rem;
+      padding-left: 0.4rem;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight {
+      background: #eef2ff;
+      border-radius: 0.5rem;
+      padding: 0.9rem 1rem;
+      font-size: 0.85rem;
+      margin-top: 0.6rem;
+    }
+
+    .contact-box {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 1rem;
+      padding: 1.8rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .contact-box p {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .contact-email {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.3rem 0;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    footer a {
+      color: #4b5563;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #111827;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        margin-left: 0;
+        margin-right: 0.7rem;
+        margin-top: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          AXONO<span>VYN</span>
+        </div>
+        <div class="nav-links">
+          <a href="#platform">Platform</a>
+          <a href="#clinics">For Clinics</a>
+          <a href="#research">For Researchers</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="pill">
+            <span></span>
+            Early-stage, research-driven MS platform
+          </div>
+          <h1>Structured data and AI-ready infrastructure for MS clinics and researchers.</h1>
+          <p class="lead">
+            Axonovyn helps multiple sclerosis centers capture longitudinal clinical, cognitive, and patient-reported data in a structured way—laying the groundwork for better care, research, and AI-driven insights into progression.
+          </p>
+          <div>
+            <a class="btn-primary" href="mailto:info@axonovyn.com?subject=Axonovyn Demo Request">
+              Request a Demo
+            </a>
+            <a class="btn-secondary" href="mailto:info@axonovyn.com?subject=Axonovyn Collaboration">
+              Explore Collaboration
+            </a>
+          </div>
+          <div class="hero-meta">
+            Designed with real MS workflows in mind · Built at the intersection of neurology, imaging, and AI.
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h2>What Axonovyn focuses on</h2>
+            <p style="font-size:0.9rem; color:#4b5563; margin-top:0.4rem;">
+              A lightweight, clinic-ready layer to bring fragmented MS data into one structured, analysis-ready view.
+            </p>
+            <div class="stat-row">
+              <div>
+                <div class="stat-label">Longitudinal view</div>
+                <div>Relapses · EDSS · cognition · DMT history</div>
+              </div>
+            </div>
+            <div class="stat-row">
+              <div>
+                <div class="stat-label">For clinics</div>
+                <div>At-a-glance patient status and trends</div>
+              </div>
+            </div>
+            <div class="stat-row">
+              <div>
+                <div class="stat-label">For research</div>
+                <div>Clean, structured datasets for modeling</div>
+              </div>
+            </div>
+            <div class="pill-small">MS care · Digital health · AI-ready data</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform -->
+    <section id="platform">
+      <div class="container">
+        <h2 class="section-title">The Axonovyn platform</h2>
+        <p class="section-subtitle">
+          Axonovyn is not another general-purpose EMR. It is a focused layer for MS clinics and research teams to capture the data that matter most for progression, outcomes, and future AI models.
+        </p>
+
+        <div class="grid-3">
+          <div class="feature-card">
+            <div class="badge">Data capture</div>
+            <h3>Structured MS profiles</h3>
+            <p>
+              Capture core MS variables in a consistent format: diagnosis and MS type, DMT history, comorbidities, relapse history, and key imaging metadata (e.g., MRI/OCT dates and summaries).
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="badge">Longitudinal tracking</div>
+            <h3>Clinical, cognitive & PRO timelines</h3>
+            <p>
+              Track EDSS, walking and hand function measures, cognitive scores, and patient-reported outcomes such as fatigue, mood, and fear of relapse across visits.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="badge">AI-ready</div>
+            <h3>Analysis-ready export</h3>
+            <p>
+              Generate de-identified, structured datasets suitable for statistical analysis and machine learning, including progression modeling and outcome prediction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- For Clinics / For Researchers -->
+    <section id="clinics">
+      <div class="container two-column">
+        <div>
+          <h2 class="section-title">For MS clinics and centers</h2>
+          <p class="section-subtitle">
+            Built to support routine patient care while quietly organizing data in the background.
+          </p>
+          <div class="simple-card">
+            <h3>Clinical teams get:</h3>
+            <ul>
+              <li>A concise, longitudinal view of each patient’s journey.</li>
+              <li>Quick access to relapse history, disability, cognition, and treatment changes.</li>
+              <li>Consistent documentation to support quality improvement initiatives.</li>
+            </ul>
+            <div class="highlight">
+              Designed to layer on top of existing workflows, not replace your EMR.
+            </div>
+          </div>
+        </div>
+        <div id="research">
+          <h2 class="section-title">For researchers and AI teams</h2>
+          <p class="section-subtitle">
+            Axonovyn is designed with research questions in mind: progression, cognitive trajectories, and the impact of therapies over time.
+          </p>
+          <div class="simple-card">
+            <h3>Research teams gain:</h3>
+            <ul>
+              <li>Well-structured, de-identified datasets suitable for longitudinal analysis.</li>
+              <li>Variables aligned with modern MS research: disability, cognition, relapses, DMTs, PROs.</li>
+              <li>A foundation for integrating imaging and biomarker data in future phases.</li>
+            </ul>
+            <div class="highlight">
+              We aim to support collaborations on AI models that are clinically grounded and deployment-ready.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Axonovyn</h2>
+        <p class="section-subtitle">
+          Axonovyn emerged from academic work in MS, neuroimaging, and AI, with a simple observation: MS care generates rich data, but much of it is fragmented, unstructured, and under-used.
+        </p>
+        <div class="two-column">
+          <div class="simple-card">
+            <h3>Our focus</h3>
+            <p>
+              We focus on building a lean, clinically meaningful data layer for MS care—one that supports everyday clinical decisions today and enables robust AI modeling tomorrow.
+            </p>
+          </div>
+          <div class="simple-card">
+            <h3>Our stage</h3>
+            <p>
+              Axonovyn is an early-stage, research-driven initiative. We are actively exploring pilot collaborations with MS clinics and academic centers interested in structured data capture and AI-ready infrastructure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2 style="font-size:1.3rem;">Interested in a pilot or collaboration?</h2>
+          <p>
+            If you represent an MS clinic, center, or research group and would like to discuss pilots, data needs, or AI projects, we would be glad to hear from you.
+          </p>
+          <p>
+            Please reach out via email and include a brief description of your clinic or project:
+          </p>
+          <p>
+            <a class="contact-email" href="mailto:info@axonovyn.com?subject=Axonovyn Inquiry">
+              info@axonovyn.com
+            </a>
+          </p>
+          <div style="font-size:0.8rem; color:#9ca3af;">
+            Note: Axonovyn is not a replacement for your EMR and is not a direct-to-patient medical service. It is a data and research-oriented platform designed for use by clinical and research teams.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+      <div>© <span id="year"></span> Axonovyn. All rights reserved.</div>
+      <div>
+        <a href="#platform">Platform</a> ·
+        <a href="#clinics">Clinics</a> ·
+        <a href="#research">Research</a> ·
+        <a href="#about">About</a>
+      </div>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
